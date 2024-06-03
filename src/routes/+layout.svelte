@@ -1,9 +1,8 @@
 <script>
-	import Header from './Header.svelte';
-	import './styles.css';
+  import "../app.css";
 </script>
 
-<div class="app">
+<!-- <div class="app">
 	<Header />
 
 	<main>
@@ -50,4 +49,12 @@
 			padding: 12px 0;
 		}
 	}
+</style> -->
+
+<h1 class="text-9xl font-bold underline">Hello world!</h1>
+
+<style lang="postcss">
+  :global(html) {
+    background-color: theme(colors.gray.100);
+  }
 </style>
