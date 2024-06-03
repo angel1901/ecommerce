@@ -9,7 +9,6 @@
     responseCreateProduct,
   } from "../../../stores/ModalStore";
   import CreateProduct from "../Forms/CreateProduct.svelte";
-  import CreateProducts2 from "../Forms/CreateProducts2.svelte";
 
   let data = null;
   let showModal = false;
