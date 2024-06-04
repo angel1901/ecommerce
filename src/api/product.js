@@ -3,25 +3,22 @@ import { axiosInstance } from './instances';
 
 export const getProduct = async (url, params = {}) => {
   try {
-    let config = {
-      method: 'get',
-      maxBodyLength: Infinity,
-      url: 'http://3.147.55.144:3000/products',
-      headers: { 
-        'Accept': 'application/json, text/plain, */*', 
-        'Referer': ''
-      }
+    
+    const myHeaders = new Headers();
+    myHeaders.append("Accept", "application/json, text/plain, */*");
+    myHeaders.append("Referer", "");
+    
+    const requestOptions = {
+      method: "GET",
+      headers: myHeaders,
+      redirect: "follow"
     };
     
-    axios.request(config)
-    .then((response) => {
-      console.log(JSON.stringify(response.data));
-      console.log(['JSON.stringify(response.data)']);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-    
+    fetch("http://3.147.55.144:3000/products", requestOptions)
+      .then((response) => response.text())
+      .then((result) => console.log(result))
+      .catch((error) => console.error(error));
+
 
     const response = await axiosInstance.get(url, { params });
 
