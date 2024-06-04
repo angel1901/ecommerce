@@ -1,7 +1,28 @@
+import axios from 'axios';
 import { axiosInstance } from './instances';
 
 export const getProduct = async (url, params = {}) => {
   try {
+    let config = {
+      method: 'get',
+      maxBodyLength: Infinity,
+      url: 'http://3.147.55.144:3000/products',
+      headers: { 
+        'Accept': 'application/json, text/plain, */*', 
+        'Referer': ''
+      }
+    };
+    
+    axios.request(config)
+    .then((response) => {
+      console.log(JSON.stringify(response.data));
+      console.log(['JSON.stringify(response.data)']);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+    
+
     const response = await axiosInstance.get(url, { params });
 
     return response;
@@ -13,6 +34,7 @@ export const getProduct = async (url, params = {}) => {
 
 export const showProduct = async (url, id, params = {}) => {
   try {
+
     const response = await axiosInstance.get(`${url}/${id}`, { params });
     return response;
   } catch (error) {
