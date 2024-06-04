@@ -1,5 +1,9 @@
 <script>
-  import { isModalOpen, productToUpdate } from "../../../stores/ModalStore";
+  import {
+    isModalOpen,
+    isModalOrderOpen,
+    productToUpdate,
+  } from "../../../stores/ModalStore";
 
   export let item;
   export let handleDelete;
@@ -7,6 +11,11 @@
   const handleUpdate = () => {
     isModalOpen.set(true);
     productToUpdate.set(item);
+  };
+
+  const handleOpenOrder = () => {
+    productToUpdate.set(item);
+    isModalOrderOpen.set(true);
   };
 </script>
 
@@ -33,16 +42,16 @@
   <div class="mt-6 grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-3 items-center">
     <button
       on:click={() => handleDelete(item?.id)}
-      class="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-500 sm:ml-3 sm:w-auto"
+      class="inline-flex w-3/4 mx-auto lg:w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-500 sm:ml-3 sm:w-auto mt-3 md:mt-0"
       >Delete</button
     >
     <button
-      class="inline-flex w-full justify-center rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-500 sm:ml-3 sm:w-auto"
+      class="inline-flex w-3/4 mx-auto lg:w-full justify-center rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-500 sm:ml-3 sm:w-auto mt-3 md:mt-0"
       on:click={handleUpdate}>Update</button
     >
     <button
-      class="inline-flex w-full justify-center rounded-md bg-green-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-500 sm:ml-3 sm:w-auto"
-      >Add to Order</button
+      class="inline-flex w-3/4 mx-auto lg:w-full justify-center rounded-md bg-green-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-500 sm:ml-3 sm:w-auto mt-3 md:mt-0"
+      on:click={handleOpenOrder}>Add to Order</button
     >
   </div>
 </div>

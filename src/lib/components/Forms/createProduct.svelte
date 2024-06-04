@@ -2,7 +2,7 @@
   import { createForm } from "felte";
   import { validator } from "@felte/validator-yup";
   import * as yup from "yup";
-  import { addProduct } from "../../../api/product";
+  import { addProduct, updateProduct } from "../../../api/product";
   import {
     isModalOpen,
     urlImageProduct,
@@ -21,13 +21,23 @@
   }
 
   const onSubmit = (values) => {
-    addProduct("products", values).then((data) => {
-      if (data?.status == "success") {
-        responseCreateProduct.set(data?.message);
-        console.log(data?.message);
-        isModalOpen.set(false);
-      }
-    });
+    if (initialValues) {
+      updateProduct("products", initialValues.id, values).then((data) => {
+        if (data?.status == "success") {
+          responseCreateProduct.set(data?.message);
+          console.log(data?.message);
+          isModalOpen.set(false);
+        }
+      });
+    } else {
+      addProduct("products", values).then((data) => {
+        if (data?.status == "success") {
+          responseCreateProduct.set(data?.message);
+          console.log(data?.message);
+          isModalOpen.set(false);
+        }
+      });
+    }
   };
 
   const schema = yup.object({
@@ -52,7 +62,6 @@
     initialValues,
     onSubmit,
   });
-  console.log(errors);
 </script>
 
 <form use:form>

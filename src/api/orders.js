@@ -44,3 +44,12 @@ export const deleteOrder = async (url, id, data = {}) => {
     throw error;
   }
 };
+
+export const addProductToOrder = async (url, data = {}) => {
+  try {
+    const response = await axiosInstance.post(`${url}`, data);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};

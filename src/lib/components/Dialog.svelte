@@ -1,6 +1,6 @@
 <script>
   export let body;
-  export let isModalOpen;
+  export let isOpen;
 </script>
 
 <div
@@ -24,7 +24,7 @@
           <button
             type="button"
             class="ml-auto mr-5"
-            on:click={() => isModalOpen.set(false)}
+            on:click={() => isOpen.set(false)}
           >
             <span class="sr-only">Close</span>
             <svg

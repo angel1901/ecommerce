@@ -1,5 +1,7 @@
 <!-- Componente de entrada -->
 <script>
+  import { orderName } from "../../../../stores/ModalStore";
+
   export let label;
   export let placeholder;
   export let name;
@@ -14,6 +16,9 @@
       if (!urlRegex.test(event.target.value)) {
         errors = ["Must be an valid URL"];
       }
+    }
+    if (name == "order_name") {
+      orderName.set(event.target.value);
     }
   };
 </script>
