@@ -3,7 +3,6 @@ import { axiosInstance } from './instances';
 export const getProduct = async (url, params = {}) => {
   try {
     const response = await axiosInstance.get(url, { params });
-    console.log(response)
 
     return response;
   } catch (error) {

@@ -17,7 +17,6 @@
   const fetchData = () => {
     getOrder("orders").then(({ data }) => {
       orders = data.data;
-      console.log(data.data);
     });
   };
 

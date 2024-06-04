@@ -27,7 +27,6 @@
       }
       data = data?.data?.data;
     } catch (error) {
-      console.log("asdas");
       authenticated.set(false);
       console.error("Error fetching data:", error);
     }

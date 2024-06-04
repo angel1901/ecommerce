@@ -8,13 +8,11 @@
   } from "../../../stores/ModalStore";
   import OrderRow from "./OrderRow.svelte";
 
-  let showOrder;
   let orders = [];
 
   const fetchData = () => {
     getOrder("orders").then(({ data }) => {
       orders = data.data;
-      console.log(data.data);
     });
   };
 
@@ -66,7 +64,7 @@
         <div class="lg:grid-cols-1">
           {#if data}
             {#each data as item}
-              <OrderRow {item} {handleDelete} />
+              <OrderRow {item} />
             {/each}
           {:else}
             <p>Loading...</p>

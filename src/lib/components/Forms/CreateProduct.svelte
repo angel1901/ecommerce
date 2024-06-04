@@ -25,7 +25,6 @@
       updateProduct("products", initialValues.id, values).then((data) => {
         if (data?.status == "success") {
           responseCreateProduct.set(data?.message);
-          console.log(data?.message);
           isModalOpen.set(false);
         }
       });
@@ -33,7 +32,6 @@
       addProduct("products", values).then((data) => {
         if (data?.status == "success") {
           responseCreateProduct.set(data?.message);
-          console.log(data?.message);
           isModalOpen.set(false);
         }
       });
