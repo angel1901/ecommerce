@@ -5,7 +5,7 @@
   import Product from "./Product/index.svelte";
 </script>
 
-{#if true}
+{#if authenticated}
   <Nav />
   <div class="p-5 md:p-0">
     <Product />
