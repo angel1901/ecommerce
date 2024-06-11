@@ -21,7 +21,7 @@
   }
 
   const onSubmit = (values) => {
-    if (initialValues) {
+    if (initialValues?.id) {
       updateProduct("products", initialValues.id, values).then((data) => {
         if (data?.status == "success") {
           responseCreateProduct.set(data?.message);
